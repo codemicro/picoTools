@@ -5,6 +5,7 @@ from typing import List
 import interface
 import ports
 
+
 class WriteTool:
 
     _driver: interface.Driver
@@ -28,7 +29,7 @@ class WriteTool:
         else:
             return "Written"
 
-    def ls(self, dir:str="") -> str:
+    def ls(self, dir: str = "") -> str:
         files, err = self._fileMan.list_files(dir)
         if err:
             return "Unable to list files\n" + err
@@ -54,6 +55,7 @@ class WriteTool:
 
     def wipe(self) -> str:
         return "TODO"
+
 
 if __name__ == "__main__":
     fire.Fire(WriteTool)
