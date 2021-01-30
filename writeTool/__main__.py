@@ -34,7 +34,7 @@ class WriteTool:
         if err:
             return "Unable to list files\n" + err
         else:
-            return "\n".join(files)
+            return "\n".join(map(str, files))
 
     def cat(self, filename: str) -> str:
         fcont, err = self._fileMan.read_file(filename)
@@ -49,6 +49,9 @@ class WriteTool:
             return "Unable to delete file\n" + err
         else:
             return "Deleted"
+
+    def reset(self) -> str:
+        return "TODO"
 
     def rmdir(self, dirname: str) -> str:
         return "TODO"

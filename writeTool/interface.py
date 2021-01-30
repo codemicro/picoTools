@@ -74,10 +74,15 @@ class FileMan:
 
     def list_files(self, dir: str = "") -> Tuple[List[FileInfo], str]:
         self.driver.send(f"list(os.ilistdir({repr(dir)}))")
-        dls = eval(self.driver.read())
+        x = self.driver.read()
+        err = self.driver.check_traceback(x)
+        if err:
+            return [], err
+        
+        dls = eval(x)
         return [
             FileInfo(x[0], x[1] == 0x4000, x[3]) for x in dls
-        ], self.driver.check_traceback()
+        ], ""
 
     def read_file(self, filename: str) -> Tuple[str, str]:
         self.driver.send(f'open("{filename}").read()')
