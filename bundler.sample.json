@@ -1,0 +1,13 @@
+[
+    {
+        "repo": "adafruit/Adafruit_CircuitPython_Debouncer",
+        "assetNameRegex": "adafruit-circuitpython-debouncer-6\\.x.+\\.zip",
+        "tagRegex": "1\\.\\d+\\.\\d+",
+        "files": [
+            {
+                "source": "{0}/lib/adafruit_debouncer.mpy",
+                "output": "adafruit_debouncer.mpy"
+            }
+        ]
+    }
+]
